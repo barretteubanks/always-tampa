@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Always Tampa",
+    "version": "1.0",
+    "description": "Overrides geolocation to always return Tampa, Florida",
+
+    "icons": {
+        "48": "icon48.png",
+        "128": "icon128.png"
+      },
+
+    "content_scripts": [
+      {
+        "matches": ["https://mylocation.org/*","https://tv.youtube.com/*"],
+        "js": ["inject.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "web_accessible_resources": [
+        {
+          "resources": ["geolocation_override.js"],
+          "matches": ["<all_urls>"]
+        }
+      ]
+  }
+  
